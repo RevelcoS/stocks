@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, url_for
 from app import app
 from app.stocks import stock
 
@@ -10,4 +10,8 @@ def index():
 @app.route("/stocks")
 def stocks():
     stock.refresh_prices()
-    return stock.read_table()
+    table = stock.read_table()
+    return render_template(
+        "stocks.html",
+        stocks_table=table["stocks"],
+        rounds=range(table["next_round"]))

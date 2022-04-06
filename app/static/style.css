@@ -1,0 +1,81 @@
+.container {
+  font-family: arial;
+  font-size: 24px;
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+}
+
+.item {
+  padding: 1px;
+  margin: 1px;
+  text-align: center; 
+}
+
+
+/* stocks button */
+#stocks-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1e43c9;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 32px;
+  padding: 20px;
+  width: 800px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#stocks-button:hover span {
+  font-size: 38px;
+}
+
+#stocks-button:hover {
+  background-color: #204ae1;
+  width: 820px;
+}
+
+#stocks-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+
+/* stocks table */
+#stocks-table {
+  width: 60%;
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 15px;
+}
+
+#stocks-table th, #stocks-table td {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: xx-large;
+  text-shadow: #b9e26c 1px 0px 2px;
+  color: #92ad16;
+  border: 1px dashed #dddddd;
+  border-width: 1px;
+  padding: 15px;
+  text-align: center;
+}
+
+#stocks-table tr:nth-child(even){background-color: #f2f2f2;}
+#stocks-table tr:hover {background-color: #ddd;}
+
+#stocks-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #72c118;
+  color: white;
+}
