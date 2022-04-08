@@ -1,24 +1,58 @@
 {% extends "base.html" %}
 
+{% block extensions %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+
 {% block content %}
 
+<!-- Stocks Table -->
 <div class="container">
+
     <table id="stocks-table">
         <tr>
-            <th>#</th>
+            <th style="background-color: {{ colors_table[leading_stock] }};">#</th>
             {% for round in rounds %}
-                <th>{{ round }}</th>
+                <th style="background-color: {{ colors_table[leading_stock] }};">{{ round }}</th>
             {% endfor %}
         </tr>
         {% for stock in stocks_table %}
         <tr>
-            <td>{{ stock }}</td>
+            <td style="color:{{ colors_table[stock] }};">{{ stock }}</td>
             {% for price in stocks_table[stock] %}
-                <td>{{ price }}</td>
+                <td style="color:{{ colors_table[stock] }};">{{ price }}</td>
             {% endfor %}
         </tr>
         {% endfor %}
     </table>
-</div>
 
+<!-- Stocks Graph -->
+    <canvas id="stocks-chart" width="800" height="600"></canvas>
+    <script>
+        var ctx = document.getElementById("stocks-chart").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: {{ rounds | safe }},
+                datasets: [
+                    {% for stock in stocks_table %}
+                    {
+                        label: "{{ stock }}",
+                        data: {{ stocks_table[stock] | safe }},
+                        fill: false,
+                        borderColor: "{{ colors_table[stock] }}",
+                        lineTension: 0.1
+                    },
+                    {% endfor %}
+                ]
+            },
+
+            options: {
+                responsive: false,
+            }
+        });
+    </script>
+
+</div>
 {% endblock %}

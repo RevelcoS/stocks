@@ -11,7 +11,10 @@ def index():
 def stocks():
     stock.refresh_prices()
     table = stock.read_table()
+    #stock.read_table_as_graph()
     return render_template(
         "stocks.html",
         stocks_table=table["stocks"],
-        rounds=range(table["next_round"]))
+        rounds=list(range(table["next_round"])),
+        colors_table={"Tech":"#2d55d9", "Bio":"#31E987", "Calc":"#f2a314", "CPy":"#e60000"},
+        leading_stock=stock.leading_stock())

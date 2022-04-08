@@ -57,5 +57,19 @@ def refresh_prices():
 
     write_local_json("table.json", format_table_data(table_data))
 
+
+def leading_stock():
+    table_data = read_table()
+    next_round = table_data["next_round"]
+    stocks_table = table_data["stocks"]
+    stock_candidate = ""
+    max_price = -1
+    for stock in stocks_table:
+        price = float(stocks_table[stock][next_round-1])
+        if price >= max_price:
+            max_price = price
+            stock_candidate = stock
+    return stock_candidate
+
 def read_table():
     return read_local_json("table.json")
