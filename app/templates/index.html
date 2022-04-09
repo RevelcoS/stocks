@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
+{% extends "base.html" %}
 
-    </head>
-    <body>
-        <h1>STOCKS!!!</h1>
-    </body>
-</html>
+{% block content %}
+<ul class="container">
+    <li class="item"><image src="https://memepedia.ru/wp-content/uploads/2019/06/stonks-template.png"></image></li>
+    <li class="item"><a href="{{ url_for('stocks') }}"><button id="stocks-button" style="vertical-align:middle"><span>STOCKS</span></button></a></li>
+</ul>
+{% endblock %}
