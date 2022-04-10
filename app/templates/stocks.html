@@ -36,13 +36,15 @@
             data: {
                 labels: {{ rounds | safe }},
                 datasets: [
-                    {% for stock in stocks_table %}
+                    {% for stock in graph_table %}
                     {
                         label: "{{ stock }}",
-                        data: {{ stocks_table[stock] | safe }},
+                        data: {{ graph_table[stock] | safe }},
                         fill: false,
+                        backgroundColor: "{{ colors_table[stock] }}",
                         borderColor: "{{ colors_table[stock] }}",
-                        lineTension: 0.1
+                        pointRadius: 0,
+                        lineTension: 0.3,
                     },
                     {% endfor %}
                 ]
@@ -50,6 +52,14 @@
 
             options: {
                 responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks:
+                        {
+                            stepSize: 1,
+                        }
+                    }]
+                }
             }
         });
     </script>

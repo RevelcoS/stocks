@@ -1,27 +1,80 @@
 {
     "1": [
-        "14 + BOMB",
-        "81 - ROBO",
-        "27 + PHYS",
-        "31 + MEDC",
-        "19 - CHEM",
-        "90 - ECON",
-        "57 + CRPT",
-        "64 + GEOM",
-        "75 - DSGN",
-        "23 + SVER"
+        "+ BOMB",
+        "- ROBO",
+        "+ PHYS",
+        "+ MEDC",
+        "+ CHEM",
+        "- ECON",
+        "0 CRPT",
+        "+ GEOM",
+        "- DSGN",
+        "+ SVER"
     ],
 
     "2": [
-        "14 + ROBO",
-        "81 - PHYS",
-        "27 - CHEM",
-        "31 + GEOM",
-        "19 + SVER",
-        "90 - BOMB",
-        "57 + DSGN",
-        "64 - CRPT",
-        "75 + MEDC",
-        "23 - ECON"
+        "+ ROBO",
+        "- PHYS",
+        "+ CHEM",
+        "+ GEOM",
+        "+ SVER",
+        "0 BOMB",
+        "0 DSGN",
+        "0 CRPT",
+        "+ MEDC",
+        "- ECON"
+    ],
+
+    "3": [
+        "+ ROBO",
+        "0 PHYS",
+        "+ CHEM",
+        "+ GEOM",
+        "+ SVER",
+        "- BOMB",
+        "0 DSGN",
+        "+ CRPT",
+        "+ MEDC",
+        "0 ECON"
+    ],
+
+    "4": [
+        "- ROBO",
+        "+ PHYS",
+        "0 CHEM",
+        "+ GEOM",
+        "+ SVER",
+        "+ BOMB",
+        "- DSGN",
+        "0 CRPT",
+        "+ MEDC",
+        "- ECON"
+    ],
+
+    "5": [
+        "0 ROBO",
+        "+ PHYS",
+        "- CHEM",
+        "0 GEOM",
+        "0 SVER",
+        "- BOMB",
+        "+ DSGN",
+        "0 CRPT",
+        "- MEDC",
+        "+ ECON"
+    ],
+
+    "6": [
+        "- ROBO",
+        "+ PHYS",
+        "+ CHEM",
+        "0 GEOM",
+        "- SVER",
+        "+ BOMB",
+        "0 DSGN",
+        "+ CRPT",
+        "0 MEDC",
+        "0 ECON"
     ]
+
 }

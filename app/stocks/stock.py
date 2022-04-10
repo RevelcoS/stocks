@@ -18,32 +18,36 @@ def calculate_prices(stock):
     '''
     info_data = read_local_json("info.json")
     log_data = read_local_json("log.json")
-    teams_data = read_local_json("teams.json")
 
     prices = [6]
-    percent = 15
-    for round in range(1, len(log_data)+1):
-        coeff = 1
-        for action in log_data[str(round)]:
-            team, passed, station, = action.split()
+    for _round in range(1, len(log_data)+1):
+        delta = 0
+        for action in log_data[str(_round)]:
+            passed, station, = action.split()
             if station in info_data[stock]:
-                bool_passed = ("+" == passed)
-                bool_active_stock = (stock in teams_data[team])
-                if (bool_passed == bool_active_stock):
-                    coeff *= 1 + percent / 100
-                else:
-                    coeff *= 1 - percent / 100
-
-        prices.append(prices[-1] * coeff)
+                if passed == "+":
+                    delta += -0.1
+                elif passed == "0":
+                    delta += +0.2
+                elif passed == "-":
+                    delta += +0.5
+        prices.append(prices[-1] + delta)
 
     return prices
 
 
-def format_table_data(table_data):
+def str_round_table_data(table_data):
     stocks_table = table_data["stocks"]
     for stock in stocks_table:
-        for round in range(len(stocks_table[stock])):
-            stocks_table[stock][round] = format(stocks_table[stock][round], ".2f")
+        for _round in range(len(stocks_table[stock])):
+            stocks_table[stock][_round] = format(float(stocks_table[stock][_round]), ".2f")
+    return table_data
+
+def int_table_data(table_data):
+    stocks_table = table_data["stocks"]
+    for stock in stocks_table:
+        for _round in range(len(stocks_table[stock])):
+            stocks_table[stock][_round] = round(float(stocks_table[stock][_round]))
     return table_data
     
 def refresh_prices():
@@ -55,11 +59,11 @@ def refresh_prices():
         table_data["stocks"][stock] = calculate_prices(stock)
     table_data["next_round"] = len(table_data["stocks"][stock])
 
-    write_local_json("table.json", format_table_data(table_data))
+    write_local_json("table.json", str_round_table_data(table_data))
 
 
 def leading_stock():
-    table_data = read_table()
+    table_data = read_local_json("table.json")
     next_round = table_data["next_round"]
     stocks_table = table_data["stocks"]
     stock_candidate = ""
@@ -70,6 +74,7 @@ def leading_stock():
             max_price = price
             stock_candidate = stock
     return stock_candidate
+
 
 def read_table():
     return read_local_json("table.json")
