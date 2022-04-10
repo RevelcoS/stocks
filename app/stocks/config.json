@@ -1,0 +1,39 @@
+{
+    "max_rounds": 12,
+    "active_teams": 11,
+    "available_companies": ["HIST", "ROBO", "PHYS", "MEDC", "CHEM", "BOMB", "CRPT", "GEOM", "DSGN", "SVER"],
+    "available_actions": ["+", "0", "-"],
+    "companies":
+    {
+        "TechnoPolis": {
+            "stations": ["HIST", "ROBO", "PHYS"],
+            "color": "#2d55d9"
+        },
+
+        "BioLife": {
+            "stations": ["MEDC", "CHEM"],
+            "color": "#31e987"
+        },
+
+        "CalcuLate": {
+            "stations": ["BOMB", "CRPT", "GEOM"],
+            "color": "#f2a314"
+        },
+
+        "ColorPython": {
+            "stations": ["DSGN", "SVER"],
+            "color": "#e60000"
+        }
+    },
+
+    "algorithm":
+    {
+        "start_price": 6,
+        "float_precision": 1,
+        "delta_prices": {
+            "+": -0.1,
+            "0": 0.2,
+            "-": 0.5
+        }
+    }
+}

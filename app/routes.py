@@ -10,6 +10,7 @@ def index():
 @app.route("/stocks")
 def stocks():
     stock.refresh_prices()
+    config_data = stock.read_config()
     stocks_table = stock.int_table_data(stock.read_table())
     graph_table = stock.read_table()
     return render_template(
@@ -17,5 +18,5 @@ def stocks():
         stocks_table=stocks_table["stocks"],
         graph_table=graph_table["stocks"],
         rounds=list(range(graph_table["next_round"])),
-        colors_table={"Tech":"#2d55d9", "Bio":"#31E987", "Calc":"#f2a314", "CPy":"#e60000"},
+        colors_table=config_data["companies"],
         leading_stock=stock.leading_stock())

@@ -5,7 +5,7 @@
         "+ PHYS",
         "+ MEDC",
         "+ CHEM",
-        "- ECON",
+        "- HIST",
         "0 CRPT",
         "+ GEOM",
         "- DSGN",
@@ -22,7 +22,7 @@
         "0 DSGN",
         "0 CRPT",
         "+ MEDC",
-        "- ECON"
+        "- HIST"
     ],
 
     "3": [
@@ -35,7 +35,7 @@
         "0 DSGN",
         "+ CRPT",
         "+ MEDC",
-        "0 ECON"
+        "0 HIST"
     ],
 
     "4": [
@@ -48,7 +48,7 @@
         "- DSGN",
         "0 CRPT",
         "+ MEDC",
-        "- ECON"
+        "- HIST"
     ],
 
     "5": [
@@ -61,7 +61,7 @@
         "+ DSGN",
         "0 CRPT",
         "- MEDC",
-        "+ ECON"
+        "+ HIST"
     ],
 
     "6": [
@@ -74,7 +74,6 @@
         "0 DSGN",
         "+ CRPT",
         "0 MEDC",
-        "0 ECON"
+        "0 HIST"
     ]
-
 }

@@ -1,6 +1,0 @@
-{
-    "Tech": ["BOMB", "ROBO", "PHYS"],
-    "Bio": ["MEDC", "CHEM"],
-    "Calc": ["ECON", "CRPT", "GEOM"],
-    "CPy": ["DSGN", "SVER"]
-}

@@ -12,16 +12,16 @@
 
     <table id="stocks-table">
         <tr>
-            <th style="background-color: {{ colors_table[leading_stock] }};">#</th>
+            <th style="background-color: {{ colors_table[leading_stock]['color'] }};">#</th>
             {% for round in rounds %}
-                <th style="background-color: {{ colors_table[leading_stock] }};">{{ round }}</th>
+                <th style="background-color: {{ colors_table[leading_stock]['color'] }};">{{ round }}</th>
             {% endfor %}
         </tr>
         {% for stock in stocks_table %}
         <tr>
-            <td style="color:{{ colors_table[stock] }};">{{ stock }}</td>
+            <td style="color:{{ colors_table[stock]['color'] }};">{{ stock }}</td>
             {% for price in stocks_table[stock] %}
-                <td style="color:{{ colors_table[stock] }};">{{ price }}</td>
+                <td style="color:{{ colors_table[stock]['color'] }};">{{ price }}</td>
             {% endfor %}
         </tr>
         {% endfor %}
@@ -41,8 +41,8 @@
                         label: "{{ stock }}",
                         data: {{ graph_table[stock] | safe }},
                         fill: false,
-                        backgroundColor: "{{ colors_table[stock] }}",
-                        borderColor: "{{ colors_table[stock] }}",
+                        backgroundColor: "{{ colors_table[stock]['color'] }}",
+                        borderColor: "{{ colors_table[stock]['color'] }}",
                         pointRadius: 0,
                         lineTension: 0.3,
                     },
