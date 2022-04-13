@@ -1,5 +1,7 @@
+from msilib.schema import tables
 from flask import render_template, url_for
 from app import app
+from app import ConfigHandler, TableHandler
 from app.stocks import stock
 
 @app.route("/")
@@ -10,9 +12,10 @@ def index():
 @app.route("/stocks")
 def stocks():
     stock.refresh_prices()
-    config_data = stock.read_config()
-    stocks_table = stock.int_table_data(stock.read_table())
-    graph_table = stock.read_table()
+    config_data = ConfigHandler.read_data()
+    TableHandler.update_data()
+    graph_table = TableHandler.read_data()
+    stocks_table = stock.int_table_data(graph_table)
     return render_template(
         "stocks.html",
         stocks_table=stocks_table["stocks"],
