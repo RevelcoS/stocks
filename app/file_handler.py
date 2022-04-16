@@ -1,4 +1,6 @@
 import json
+from flask import current_app
+from app.errors import ReadOnlyError
 
 def read_local_json(name):
     with open(f"json/{name}", "r") as _file:
@@ -20,10 +22,28 @@ class JsonHandler:
     
     def write_data(self, data):
         if self.read_only:
-            print(f"Warning: {self.file_name} is read-only")
-        else:
-            self.data = data
-            write_local_json(self.file_name, data)
+            raise(ReadOnlyError(self.file_name))
 
-    def update_data(self):
-        self.data = read_local_json(self.file_name)
+        self.data = data
+        write_local_json(self.file_name, data)
+
+    def update_data(self, validator=None):
+        '''If the data is updated successfully, returns True (False otherwise)'''
+        try:
+            data = read_local_json(self.file_name)
+        except json.decoder.JSONDecodeError as exception:
+            current_app.logger.error(f"SyntaxError in {self.file_name}: {exception}")
+            return False
+        
+        if data == self.data:
+            return False
+
+        if validator:
+            try:
+                validator(data)
+            except Exception as exception:
+                current_app.logger.error(f"FormatError in {self.file_name}: {exception}")
+                return False
+
+        self.data = data
+        return True

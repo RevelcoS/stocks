@@ -1,5 +1,6 @@
 from app import ConfigHandler, ActionsHandler, TableHandler
 from copy import deepcopy
+from app.validate import validate_actions_table
 
 def calculate_prices(stock):
     '''
@@ -48,7 +49,8 @@ def int_table_data(table_data):
     return table_data
     
 def refresh_prices():
-    ActionsHandler.update_data()
+    if not ActionsHandler.update_data(validate_actions_table):
+        return
 
     config_data = ConfigHandler.read_data()
     companies_data = config_data["companies"]
