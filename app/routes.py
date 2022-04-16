@@ -1,8 +1,7 @@
-from msilib.schema import tables
 from flask import render_template, url_for
 from app import app
 from app import ConfigHandler, TableHandler
-from app.stocks import stock
+from app import algorithm
 
 @app.route("/")
 @app.route("/index")
@@ -11,15 +10,15 @@ def index():
 
 @app.route("/stocks")
 def stocks():
-    stock.refresh_prices()
+    algorithm.refresh_prices()
     config_data = ConfigHandler.read_data()
-    TableHandler.update_data()
     graph_table = TableHandler.read_data()
-    stocks_table = stock.int_table_data(graph_table)
+    stocks_table = algorithm.int_table_data(graph_table)
     return render_template(
         "stocks.html",
         stocks_table=stocks_table["stocks"],
         graph_table=graph_table["stocks"],
-        rounds=list(range(graph_table["next_round"])),
+        table_rounds=list(range(stocks_table["next_round"])),
+        graph_rounds=list(range(config_data["max_rounds"])),
         colors_table=config_data["companies"],
-        leading_stock=stock.leading_stock())
+        leading_stock=algorithm.leading_stock())

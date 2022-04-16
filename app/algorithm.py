@@ -1,4 +1,4 @@
-from app import ConfigHandler, LogHandler, TableHandler
+from app import ConfigHandler, ActionsHandler, TableHandler
 from copy import deepcopy
 
 def calculate_prices(stock):
@@ -10,9 +10,7 @@ def calculate_prices(stock):
     companies_data = config_data["companies"]
     algorithm_data = config_data["algorithm"]
     delta_data = algorithm_data["delta_prices"]
-
-    LogHandler.update_data()
-    log_data = LogHandler.read_data()
+    log_data = ActionsHandler.read_data()
 
     prices = [algorithm_data["start_price"]]
     for _round in range(1, len(log_data)+1):
@@ -50,6 +48,8 @@ def int_table_data(table_data):
     return table_data
     
 def refresh_prices():
+    ActionsHandler.update_data()
+
     config_data = ConfigHandler.read_data()
     companies_data = config_data["companies"]
 

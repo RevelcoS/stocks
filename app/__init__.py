@@ -1,6 +1,6 @@
-from flask import Flask
+from flask import Flask, url_for
 from flask import logging as flog
-from app.stocks.file_handler import JsonHandler
+from app.file_handler import JsonHandler
 from logging.handlers import RotatingFileHandler
 import logging, os
 
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Json
 ConfigHandler = JsonHandler("config.json", read_only=True)
-LogHandler = JsonHandler("log.json")
+ActionsHandler = JsonHandler("actions.json")
 TableHandler = JsonHandler("table.json")
 
 # Logging

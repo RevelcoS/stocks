@@ -1,5 +1,5 @@
 {
-    "max_rounds": 12,
+    "max_rounds": 14,
     "active_teams": 11,
     "available_companies": ["HIST", "ROBO", "PHYS", "MEDC", "CHEM", "BOMB", "CRPT", "GEOM", "DSGN", "SVER"],
     "available_actions": ["+", "0", "-"],

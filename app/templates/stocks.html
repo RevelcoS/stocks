@@ -13,7 +13,7 @@
     <table id="stocks-table">
         <tr>
             <th style="background-color: {{ colors_table[leading_stock]['color'] }};">#</th>
-            {% for round in rounds %}
+            {% for round in table_rounds %}
                 <th style="background-color: {{ colors_table[leading_stock]['color'] }};">{{ round }}</th>
             {% endfor %}
         </tr>
@@ -34,7 +34,7 @@
         var lineChart = new Chart(ctx, {
             type: "line",
             data: {
-                labels: {{ rounds | safe }},
+                labels: {{ graph_rounds | safe }},
                 datasets: [
                     {% for stock in graph_table %}
                     {

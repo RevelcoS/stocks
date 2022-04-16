@@ -1,12 +1,12 @@
 import json
 
 def read_local_json(name):
-    with open(f"app/stocks/{name}", "r") as _file:
+    with open(f"json/{name}", "r") as _file:
         data = json.load(_file)
     return data
 
 def write_local_json(name, data):
-    with open(f"app/stocks/{name}", "w") as _file:
+    with open(f"json/{name}", "w") as _file:
         data = json.dump(data, _file, indent=4)
 
 class JsonHandler:
