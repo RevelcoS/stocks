@@ -1,0 +1,79 @@
+{
+    "1": [
+        "+ BOMB",
+        "- ROBO",
+        "+ PHYS",
+        "+ MEDC",
+        "+ CHEM",
+        "- HIST",
+        "0 CRPT",
+        "+ GEOM",
+        "- DSGN",
+        "+ SVER"
+    ],
+
+    "2": [
+        "+ ROBO",
+        "- PHYS",
+        "+ CHEM",
+        "+ GEOM",
+        "+ SVER",
+        "0 BOMB",
+        "0 DSGN",
+        "0 CRPT",
+        "+ MEDC",
+        "- HIST"
+    ],
+
+    "3": [
+        "+ ROBO",
+        "0 PHYS",
+        "+ CHEM",
+        "+ GEOM",
+        "+ SVER",
+        "- BOMB",
+        "0 DSGN",
+        "+ CRPT",
+        "+ MEDC",
+        "0 HIST"
+    ],
+
+    "4": [
+        "- ROBO",
+        "+ PHYS",
+        "0 CHEM",
+        "+ GEOM",
+        "+ SVER",
+        "+ BOMB",
+        "- DSGN",
+        "0 CRPT",
+        "+ MEDC",
+        "- HIST"
+    ],
+
+    "5": [
+        "0 ROBO",
+        "+ PHYS",
+        "- CHEM",
+        "0 GEOM",
+        "0 SVER",
+        "- BOMB",
+        "+ DSGN",
+        "0 CRPT",
+        "- MEDC",
+        "+ HIST"
+    ],
+
+    "6": [
+        "- ROBO",
+        "+ PHYS",
+        "+ CHEM",
+        "0 GEOM",
+        "- SVER",
+        "+ BOMB",
+        "0 DSGN",
+        "+ CRPT",
+        "0 MEDC",
+        "0 HIST"
+    ]
+}
